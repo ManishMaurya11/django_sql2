@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS `tryout`;
+CREATE SCHEMA `tryout`;
