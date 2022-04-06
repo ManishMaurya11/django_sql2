@@ -1,7 +1,10 @@
-1. Made mysql schema named 'tryout' in mysql workbench
+1. mysql schema named 'tryout' can be mmade by running sql script in sql_file folder 
+   named 'create_schema_'tryout''.
 
-2. open pycharm project, and in settings.py -> DATABASE -> USER and PASS is user specific
+2. open this project, and in settings.py -> DATABASE -> USER and PASS is user specific.
 
-3. sample data can be entered through mysql workbench in tables
+3. running migration on project will create the tables.
 
-4. this project is on Django RESTapi, CRUD operations can be done o the database.
+3. now sample data can be entered through sql script in sql_file folder named 'sample_data_for_'tryout''
+
+4. this project is on Django RESTapi, CRUD operations can be done on the database.

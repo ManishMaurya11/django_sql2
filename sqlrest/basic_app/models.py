@@ -10,6 +10,9 @@ class Employees(models.Model):
     phone = models.CharField(max_length=10, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
 
+    class Meta:
+        db_table = "employees"
+
 class Customers(models.Model):
     cust_id = models.BigAutoField(primary_key=True)
     first_name = models.CharField(max_length=30)
@@ -18,11 +21,17 @@ class Customers(models.Model):
     phone = models.CharField(max_length=10, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
 
+    class Meta:
+        db_table = "customers"
+
 class Orders(models.Model):
     order_id = models.BigAutoField(primary_key=True)
     cust_id = models.ForeignKey(Customers, on_delete=models.DO_NOTHING)
     order_date = models.DateField()
     emp_id = models.ForeignKey(Employees, on_delete=models.DO_NOTHING)
+
+    class Meta:
+        db_table = "orders"
 
 class Products(models.Model):
     prod_id = models.BigAutoField(primary_key=True)
@@ -31,11 +40,17 @@ class Products(models.Model):
     unit_price = models.IntegerField()
     order_id = models.ManyToManyField(Orders, through='Orders_Products')
 
+    class Meta:
+        db_table = "products"
+
 
 class Orders_Products(models.Model):
     order_id = models.ForeignKey(Orders, on_delete=models.CASCADE)
     prod_id = models.ForeignKey(Products, on_delete=models.CASCADE)
     units = models.IntegerField()
+
+    class Meta:
+        db_table = "orders_products"
 
 
 
